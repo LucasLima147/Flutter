@@ -28,14 +28,17 @@ class HomeController {
   }
 
   String checkEvenNumber() {
-    String message = "Este número ";
-    if (getCurrentResult() % 2 == 0) {
-      message += "é par";
-    } else {
-      message += "não é par";
+    String message = "Este número";
+
+    if (getCurrentResult() < 0) {
+      return message + " é negativo";
     }
 
-    return message;
+    if (getCurrentResult() % 2 == 0) {
+      return message + " é par";
+    }
+
+    return message += " não é par";
   }
 
   int getCurrentResult() {
