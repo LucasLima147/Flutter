@@ -55,6 +55,10 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   setState(() {
                     HomeController.instance.sum(5);
+                    if (isWarned &&
+                        HomeController.instance.getCurrentResult() >= 0) {
+                      isWarned = false;
+                    }
                   });
                 },
                 style: TextButton.styleFrom(
@@ -132,6 +136,7 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   setState(() {
                     HomeController.instance.resetResult();
+                    isWarned = false;
                   });
                 },
                 style: TextButton.styleFrom(
